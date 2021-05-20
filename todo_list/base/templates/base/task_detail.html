@@ -1,0 +1,9 @@
+{% extends 'base/base.html' %}
+{% block title %}Task {{task.pk}}{% endblock %}
+
+{% block content %}
+    <p>{{task.title}}</p>
+    <p>{{task.content}}</p>
+    <p>{{task.complete}}</p>
+    <p>{{task.created_at}}</p>
+{% endblock %}

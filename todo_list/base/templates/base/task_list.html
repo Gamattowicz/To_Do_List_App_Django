@@ -2,7 +2,7 @@
 {% block title %}Task list{% endblock %}
 
 {% block content %}
-{% for task in tasks %}
-    <p>{{task.title}}, {{task.content}}, {{task.complete}}, {{task.created_at}}</p>
-{% endfor %}
+    {% for task in tasks %}
+        <p>{{task.title}}</p>
+    {% endfor %}
 {% endblock %}
