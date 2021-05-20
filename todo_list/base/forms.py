@@ -1,7 +1,9 @@
 from django import forms
+from .models import Task
 
 
-class TaskForm(forms.Form):
-    title = forms.CharField(label='Title', max_length=200)
-    content = forms.CharField(label='Description', widget=forms.Textarea)
-    complete = forms.BooleanField(label='Complete')
+class TaskForm(forms.ModelForm):
+    class Meta:
+        model = Task
+        fields = ['title', 'content', 'complete']
+        title = forms.CharField(label='Title', max_length=200)

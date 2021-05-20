@@ -35,3 +35,10 @@ def task_create(request):
         task_form = TaskForm()
 
     return render(request, 'base/task_form.html', {'task_form': task_form})
+
+
+def task_update(request, task_id):
+    task = get_object_or_404(Task, pk=task_id)
+    task_form = TaskForm(instance=task)
+
+    return render(request, 'task_update.html', {'task_form':task_form})
