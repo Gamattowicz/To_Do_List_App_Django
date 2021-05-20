@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Task
+from .forms import TaskForm
 
 
 def home(request):
@@ -17,3 +18,18 @@ def task_detail(request, task_id):
     context = {'task': task}
     return render(request, 'base/task_detail.html', context)
 
+
+def task_create(request):
+    if request.method == 'POST':
+        task_form = TaskForm(request.POST)
+        if task_form.is_valid():
+            title = task_form.cleaned_data['title']
+            content = task_form.cleaned_data['content']
+            complete = task_form.cleaned_data['complete']
+
+            task = Task(title=title, content=content, complete=complete)
+            task.save()
+    else:
+        task_form = TaskForm()
+
+    return render(request, 'base/task_form.html', {'task_form': task_form})

@@ -3,6 +3,6 @@
 
 {% block content %}
     {% for task in tasks %}
-        <p><a href="/task/{{task.pk}}">{{task.title}}</a></p>
+        <p><a href="{% url 'base:detail' task.pk">{{task.title}}</a></p>
     {% endfor %}
 {% endblock %}
