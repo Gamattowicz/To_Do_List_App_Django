@@ -1,11 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Task
-from .forms import TaskForm
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 
 class TaskLoginView(LoginView):
@@ -44,9 +43,8 @@ class TaskUpdate(UpdateView):
     success_url = reverse_lazy('base:tasks')
 
 
-def task_delete(request, task_id):
-    task = get_object_or_404(Task, pk=task_id)
-    if request.method == 'POST':
-        task.delete()
-        return redirect('/task/')
-    return render(request, 'task_delete.html', {'task':task})
+class TaskDelete(DeleteView):
+    model = Task
+    context_object_name = 'task'
+    template_name = 'base/task_delete.html'
+    success_url = reverse_lazy('base:tasks')
