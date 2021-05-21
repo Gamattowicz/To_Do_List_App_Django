@@ -10,7 +10,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('task/', views.TaskList.as_view(), name='tasks'),
     path('task/<int:pk>/', views.TaskDetail.as_view(), name='detail'),
-    path('task-create/', views.task_create, name='create'),
+    path('task-create/', views.TaskCreate.as_view(), name='create'),
     path('task-update/<int:task_id>', views.task_update, name='update'),
     path('task-delete/<int:task_id>', views.task_delete, name='delete'),
 ]
