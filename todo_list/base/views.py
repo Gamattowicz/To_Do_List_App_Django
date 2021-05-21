@@ -48,6 +48,11 @@ class TaskList(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['tasks'] = context['tasks'].filter(user=self.request.user)
+
+        search_result = self.request.GET.get('search-area') or ''
+        if search_result:
+            context['tasks'] = context['tasks'].filter(title__startswith=search_result)
+        context['search_result'] = search_result
         return context
 
 
