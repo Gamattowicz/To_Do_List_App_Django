@@ -3,6 +3,7 @@ from .models import Task
 from .forms import TaskForm
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
+from django.views.generic.list import ListView
 
 
 class TaskLoginView(LoginView):
@@ -18,10 +19,9 @@ def home(request):
     return render(request, 'home.html')
 
 
-def task_list(request):
-    tasks = Task.objects.all()
-    context = {'tasks': tasks}
-    return render(request, 'base/task_list.html', context)
+class TaskList(ListView):
+    model = Task
+    context_object_name = 'tasks'
 
 
 def task_detail(request, task_id):
