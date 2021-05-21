@@ -1,0 +1,10 @@
+{% extends 'base/base.html' %}
+{% block title %}Delete Task {{task.id}}{% endblock %}
+
+{% block content %}
+    <form method="POST" class="form-group col-md-5 mt-4" id="form-container">
+        {% csrf_token %}
+        <p>Are you want to delete "{{task}}"?</p>
+        <button type="submit" name="save" class="btn btn-success">Confirm</button>
+    </form>
+{% endblock %}

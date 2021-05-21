@@ -42,3 +42,11 @@ def task_update(request, task_id):
     task_form = TaskForm(instance=task)
 
     return render(request, 'task_update.html', {'task_form':task_form})
+
+
+def task_delete(request, task_id):
+    task = get_object_or_404(Task, pk=task_id)
+    if request.method == 'POST':
+        task.delete()
+        return redirect('/task/')
+    return render(request, 'task_delete.html', {'task':task})
