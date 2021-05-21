@@ -4,6 +4,7 @@ from .forms import TaskForm
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 
 
 class TaskLoginView(LoginView):
@@ -24,10 +25,10 @@ class TaskList(ListView):
     context_object_name = 'tasks'
 
 
-def task_detail(request, task_id):
-    task = get_object_or_404(Task, pk=task_id)
-    context = {'task': task}
-    return render(request, 'base/task_detail.html', context)
+class TaskDetail(DetailView):
+    model = Task
+    context_object_name = 'task'
+    template_name = 'base/task.html'
 
 
 def task_create(request):
@@ -41,7 +42,7 @@ def task_create(request):
             task = Task(title=title, content=content, complete=complete)
             task.save()
             request.user.task.add(task)
-            return reverse('/task/')
+            return redirect('/task/')
     else:
         task_form = TaskForm()
 

@@ -9,7 +9,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(next_page='base:login'), name='logout'),
     path('', views.home, name='home'),
     path('task/', views.TaskList.as_view(), name='tasks'),
-    path('task/<int:task_id>/', views.task_detail, name='detail'),
+    path('task/<int:pk>/', views.TaskDetail.as_view(), name='detail'),
     path('task-create/', views.task_create, name='create'),
     path('task-update/<int:task_id>', views.task_update, name='update'),
     path('task-delete/<int:task_id>', views.task_delete, name='delete'),
