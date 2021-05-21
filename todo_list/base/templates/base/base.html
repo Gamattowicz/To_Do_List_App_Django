@@ -29,11 +29,11 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/task/" class="nav-link px-0 align-middle">
+                            <a href="{% url 'base:tasks' %}" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Tasks</span></a>
                         </li>
                         <li>
-                            <a href="/task-create/" class="nav-link px-0 align-middle">
+                            <a href="{% url 'base:create' %}" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Add Task</span> </a>
                         </li>
                     </ul>
