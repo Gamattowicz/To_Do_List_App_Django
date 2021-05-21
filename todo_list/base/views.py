@@ -37,10 +37,14 @@ class TaskCreate(LoginRequiredMixin, CreateView):
     fields = ['title', 'content', 'complete']
     success_url = reverse_lazy('base:tasks')
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(TaskCreate, self).form_valid(form)
+
 
 class TaskUpdate(LoginRequiredMixin, UpdateView):
     model = Task
-    fields = '__all__'
+    fields = ['title', 'content', 'complete']
     success_url = reverse_lazy('base:tasks')
 
 
