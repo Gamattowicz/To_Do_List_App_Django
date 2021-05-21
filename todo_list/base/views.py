@@ -5,7 +5,7 @@ from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 
 
 class TaskLoginView(LoginView):
@@ -38,21 +38,10 @@ class TaskCreate(CreateView):
     success_url = reverse_lazy('base:tasks')
 
 
-def task_update(request, task_id):
-    task = get_object_or_404(Task, pk=task_id)
-    task_form = TaskForm(instance=task)
-    if request.method == 'POST':
-        task_form = TaskForm(request.POST)
-        if task_form.is_valid():
-            title = task_form.cleaned_data['title']
-            content = task_form.cleaned_data['content']
-            complete = task_form.cleaned_data['complete']
-            task.title = title
-            task.content = content
-            task.complete = complete
-            task.save()
-            return redirect('/task/')
-    return render(request, 'task_update.html', {'task_form':task_form})
+class TaskUpdate(UpdateView):
+    model = Task
+    fields = '__all__'
+    success_url = reverse_lazy('base:tasks')
 
 
 def task_delete(request, task_id):
