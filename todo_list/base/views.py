@@ -40,7 +40,17 @@ def task_create(request):
 def task_update(request, task_id):
     task = get_object_or_404(Task, pk=task_id)
     task_form = TaskForm(instance=task)
-
+    if request.method == 'POST':
+        task_form = TaskForm(request.POST)
+        if task_form.is_valid():
+            title = task_form.cleaned_data['title']
+            content = task_form.cleaned_data['content']
+            complete = task_form.cleaned_data['complete']
+            task.title = title
+            task.content = content
+            task.complete = complete
+            task.save()
+            return redirect('/task/')
     return render(request, 'task_update.html', {'task_form':task_form})
 
 
