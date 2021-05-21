@@ -1,6 +1,17 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Task
 from .forms import TaskForm
+from django.contrib.auth.views import LoginView
+from django.urls import reverse_lazy
+
+
+class TaskLoginView(LoginView):
+    template_name = 'base/login.html'
+    fields = '__all__'
+    redirect_authenticated_user = True
+
+    def get_success_url(self):
+        return reverse_lazy('base:tasks')
 
 
 def home(request):
@@ -30,7 +41,7 @@ def task_create(request):
             task = Task(title=title, content=content, complete=complete)
             task.save()
             request.user.task.add(task)
-            return redirect('/task/')
+            return reverse('/task/')
     else:
         task_form = TaskForm()
 
