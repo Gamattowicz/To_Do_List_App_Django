@@ -2,10 +2,10 @@
 {% block title %}Task list{% endblock %}
 
 {% block content %}
-    <div class="form-group my-4">
-        <form method="GET">
-            <input type="text" name="search-area" value="{{search_result}}">
-            <button type="submit" class="btn btn-info search">Search</button>
+    <div class="container-fluid my-4 ms-0 col-md-5">
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search-area" value="{{search_result}}">
+          <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
     </div>
     <table class="table table-hover">
