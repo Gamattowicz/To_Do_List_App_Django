@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Task
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
+from django.views.generic import TemplateView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
@@ -37,8 +38,8 @@ class RegisterView(FormView):
         return super(RegisterView, self).get(*args, **kwargs)
 
 
-def home(request):
-    return render(request, 'home.html')
+class HomeView(LoginRequiredMixin, TemplateView):
+    template_name = "home.html"
 
 
 class TaskList(LoginRequiredMixin, ListView):
