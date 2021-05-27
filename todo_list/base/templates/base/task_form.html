@@ -4,7 +4,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <h2>Create Task</h2>
+    <h2 >CREATE TASK</h2>
     <form method="POST" class="form-group col-md-5 mt-4" id="form-container">
         {% csrf_token %}
         {{form|crispy}}

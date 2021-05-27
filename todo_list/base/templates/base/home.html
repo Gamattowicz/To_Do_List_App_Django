@@ -2,5 +2,5 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<h1>Welcome back, {{user}}!</h1>
+<h1 class="d-flex justify-content-center">Welcome back, {{request.user|title}}!</h1>
 {% endblock %}
