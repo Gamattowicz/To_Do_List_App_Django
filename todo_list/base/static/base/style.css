@@ -8,6 +8,10 @@ span {
     color: #FFDF6C;
     }
 
+span:hover {
+    opacity:0.4;
+}
+
 #title {
     color: #FFF;
     font-size: 30px;
