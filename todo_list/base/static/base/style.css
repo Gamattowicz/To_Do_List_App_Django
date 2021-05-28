@@ -13,7 +13,7 @@ span, i {
 li {
 line-height: 55px;}
 
-li:hover {
+.sidebar:hover {
     opacity:0.4;
 }
 
@@ -82,4 +82,8 @@ li:hover {
 a {
     text-decoration: none;
     color: rgb(33, 37, 41);
+    }
+
+a:hover {
+    color: (255, 223, 108);
     }

@@ -23,26 +23,26 @@
             <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100">
                     <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-decoration-none">
-                        <span class="d-none d-sm-inline" id="title">TO DO LIST APP</span>
+                        <span class="d-none d-sm-inline sidebar" id="title">TO DO LIST APP</span>
                     </a>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                        <li class="nav-item">
+                        <li class="nav-item sidebar">
                             <a href="/" class="nav-link align-middle px-0">
                                 <i class="bi bi-house-door-fill"></i> <span class="ms-1 d-none d-sm-inline">HOME</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="sidebar">
                             <a href="{% url 'base:tasks' %}" class="nav-link px-0 align-middle">
                                 <i class="bi bi-card-checklist"></i> <span class="ms-1 d-none d-sm-inline">TASKS</span></a>
                         </li>
-                        <li>
+                        <li class="sidebar">
                             <a href="{% url 'base:create' %}" class="nav-link px-0 align-middle">
                                 <i class="bi bi-plus-circle"></i> <span class="ms-1 d-none d-sm-inline">ADD TASK</span> </a>
                         </li>
                     </ul>
                     <hr>
                     <div class="dropdown pb-4">
-                        <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle text-white" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle text-white sidebar" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-file-earmark-person"></i><span class="d-none d-sm-inline mx-1">{{request.user}}</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
