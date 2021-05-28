@@ -22,7 +22,7 @@ span:hover {
     color: #FFDF6C;
     }
 
-.textarea:focus, .textinput:focus{
+.textarea:focus, .textinput:focus, .form-control:focus{
     box-shadow: rgb(255, 223, 108) 0 0 1.5em;
     border: 1px solid rgb(255, 223, 108);
     }
@@ -63,3 +63,8 @@ span:hover {
     color: rgb(255, 223, 108);
     border: 1px solid rgb(0, 0, 0);
     }
+
+.form-control {
+    border: 1px solid rgb(255, 223, 108);
+    color: rgb(255, 223, 108);
+}
