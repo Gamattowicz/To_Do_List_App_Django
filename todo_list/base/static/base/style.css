@@ -88,5 +88,9 @@ a:hover {
     }
 
 .bi-check {
-    color: rgb(50,205,50)
+    color: rgb(50,205,50);
+    }
+
+.bi-trash-fill {
+    color: rgb(220,20,60);
     }
