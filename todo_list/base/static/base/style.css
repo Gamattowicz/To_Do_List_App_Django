@@ -94,3 +94,12 @@ a:hover {
 .bi-trash-fill {
     color: rgb(220,20,60);
     }
+
+.bi-trash-fill:hover {
+    opacity: 0.4;
+    }
+
+
+.bi-pen-fill:hover {
+    color: rgb(33, 37, 41);
+    }
