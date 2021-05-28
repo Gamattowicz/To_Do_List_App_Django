@@ -4,13 +4,13 @@ body {
     font-family: 'Titillium Web', sans-serif;
     }
 
-span {
+span, i {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 25px;
     color: #FFDF6C;
     }
 
-span:hover {
+li:hover {
     opacity:0.4;
 }
 
