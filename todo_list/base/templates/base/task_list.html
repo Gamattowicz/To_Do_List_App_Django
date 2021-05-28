@@ -2,33 +2,25 @@
 {% block title %}Task list{% endblock %}
 
 {% block content %}
-    <div class="container-fluid my-4 ms-0 col-md-5">
+    <div class="container-fluid my-4 ms-0 col-md-4">
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
                  id="search-bar" name="search-area" value="{{search_result}}">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
     </div>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
+    <div class="container-fluid my-4 ms-0 col-md-8">
     {% for task in tasks %}
-        <tbody>
-            <tr>
-                <th scope="row"><a href="{% url 'base:detail' task.pk %}">{{task.title}}</a></th>
-                <td><a href="{% url 'base:update' task.pk %}">Edit</a></td>
-                <td><a href="{% url 'base:delete' task.pk %}">Delete</a></td>
+        <ul class="list-group list-group-horizontal list-group-flush list-group-item-action">
+          <li class="list-group-item" style="width:70%; border-top-width: 0px; border-bottom-width: 1px"><a href="{% url 'base:detail' task.pk %}">{{task.title}}</a></li>
+          <li class="list-group-item" style="width:15%; border-top-width: 0px; border-bottom-width: 1px"><a href="{% url 'base:update' task.pk %}"><i class="bi bi-pen-fill"></i></a></li>
+          <li class="list-group-item" style="width:15%; border-top-width: 0px; border-bottom-width: 1px"><a href="{% url 'base:delete' task.pk %}"><i class="bi bi-trash-fill"></i></a></li>
+        </ul>
     {% empty %}
-        <tbody>
-            <tr>
-                <th scope="row">No tasks in list</th>
+        <ul class="list-group list-group-horizontal list-group-flush">
+            <li class="list-group-item" style="width:100%">No tasks in list</li>
+        </ul>
     {% endfor %}
-            </tr>
-       </thody>
-    </table>
+    </div>
+
 {% endblock %}
