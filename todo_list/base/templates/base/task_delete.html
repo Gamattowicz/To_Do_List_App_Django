@@ -5,7 +5,7 @@
     <a href="{% url 'base:tasks' %}"><i class="bi bi-arrow-left-circle mt-4"></i></a>
     <form method="POST" class="form-group col-md-5 mt-4" id="form-container">
         {% csrf_token %}
-        <p>Are you want to delete "{{task}}"?</p>
+        <h5 class="mb-4">Are you sure you want to delete "{{task}}" task?</h5>
         <button type="submit" name="save" class="btn btn-success">Confirm</button>
     </form>
 {% endblock %}

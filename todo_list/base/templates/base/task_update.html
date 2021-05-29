@@ -4,11 +4,12 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+    <a href="{% url 'base:tasks' %}"><i class="bi bi-arrow-left-circle mt-5"></i></a>
     <h2>Update Task</h2>
     <form method="POST" class="form-group col-md-5 my-4" id="form-container">
         {% csrf_token %}
         {{form|crispy}}
         <button type="submit" name="save" class="btn btn-success">Submit</button>
     </form>
-    <a href="{% url 'base:tasks' %}"><i class="bi bi-arrow-left-circle mt-5"></i></a>
+
 {% endblock %}
