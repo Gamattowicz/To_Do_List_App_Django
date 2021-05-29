@@ -2,7 +2,6 @@ from django.shortcuts import redirect
 from .models import Task
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
@@ -38,8 +37,17 @@ class RegisterView(FormView):
         return super(RegisterView, self).get(*args, **kwargs)
 
 
-class HomeView(LoginRequiredMixin, TemplateView):
+class HomeView(LoginRequiredMixin, ListView):
     template_name = "home.html"
+    model = Task
+    context_object_name = 'tasks'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['tasks'] = context['tasks'].filter(user=self.request.user)
+        context['count'] = context['tasks'].filter(complete=False).count()
+
+        return context
 
 
 class TaskList(LoginRequiredMixin, ListView):

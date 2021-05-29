@@ -4,6 +4,6 @@
 {% block content %}
 <div class="mt-4">
     <h2 class="text-center">Welcome back, {{request.user|title}}!</h2>
-    <h4 class="text-center mt-3">You have <strong>1</strong> incomplete task.</h4>
+    <h4 class="text-center mt-3">You have <strong>{{count}}</strong> incomplete task{{count|pluralize:'s'}}</h4>
 </div>
 {% endblock %}
