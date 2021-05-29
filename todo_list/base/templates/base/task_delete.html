@@ -2,9 +2,10 @@
 {% block title %}Delete Task {{task.id}}{% endblock %}
 
 {% block content %}
+    <a href="{% url 'base:tasks' %}"><i class="bi bi-arrow-left-circle mt-4"></i></a>
     <form method="POST" class="form-group col-md-5 mt-4" id="form-container">
         {% csrf_token %}
         <p>Are you want to delete "{{task}}"?</p>
-        <button class="btn btn-success me-5"><a href="{% url 'base:tasks' %}">BACK</a></button><button type="submit" name="save" class="btn btn-success">Confirm</button>
+        <button type="submit" name="save" class="btn btn-success">Confirm</button>
     </form>
 {% endblock %}

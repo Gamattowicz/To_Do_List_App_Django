@@ -30,7 +30,7 @@ span, i {
     }
 
 .btn-success {
-    background-color: #FFDF6C;
+    background-color: rgb(255, 223, 108);
     color: rgb(0, 0, 0);
     border: 1px solid rgb(255, 223, 108);
     transition: 0.3s linear;
@@ -84,6 +84,10 @@ a:hover {
     color: rgb(255, 223, 108);
     }
 
+.bi-check, .bi-trash-fill, .bi-pen-fill, .bi-arrow-left-circle {
+    transition: 0.3s;
+    }
+
 .bi-check {
     color: rgb(50,205,50);
     }
@@ -96,12 +100,12 @@ a:hover {
     opacity: 0.4;
     }
 
-.bi-pen-fill:hover {
+.bi-pen-fill:hover, .bi-arrow-left-circle:hover {
     color: rgb(33, 37, 41);
     }
 
 .bi-dash {
-    color: rgb(220,20,60);
+    color: rgb(220, 20, 60);
     }
 
 [class^="bi-"]::before, [class*=" bi-"]::before, .bi-plus-circle, .bi-card-checklist {

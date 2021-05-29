@@ -2,6 +2,7 @@
 {% block title %}Task {{task.pk}}{% endblock %}
 
 {% block content %}
+    <a href="{% url 'base:tasks' %}"><i class="bi bi-arrow-left-circle mt-4"></i></a>
     <dl class="row mt-4">
       <dt class="col-sm-3">Name</dt>
       <dd class="col-sm-9">{{task.title}}</dd>
@@ -21,6 +22,4 @@
       <dt class="col-sm-3">Creation date</dt>
       <dd class="col-sm-9">{{task.created_at}}</dd>
     </dl>
-
-    <button class="btn btn-success"><a href="{% url 'base:tasks' %}">BACK</a></button>
 {% endblock %}
