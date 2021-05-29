@@ -8,6 +8,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormVi
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from django.http import JsonResponse
 
 
 class TaskLoginView(LoginView):
@@ -93,3 +94,10 @@ class TaskDelete(LoginRequiredMixin, DeleteView):
     context_object_name = 'task'
     template_name = 'base/task_delete.html'
     success_url = reverse_lazy('base:tasks')
+
+
+def change_complete_status(request, task_id):
+    task = Task.objects.get(id=task_id)
+    task.complete = not task.complete
+    task.save()
+    return redirect('base:tasks')
