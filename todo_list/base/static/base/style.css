@@ -10,9 +10,6 @@ span, i {
     color: #FFDF6C;
     }
 
-li {
-line-height: 55px;}
-
 .sidebar:hover {
     opacity:0.4;
 }
@@ -105,4 +102,8 @@ a:hover {
 
 .bi-dash {
     color: rgb(220,20,60);
+    }
+
+[class^="bi-"]::before, [class*=" bi-"]::before, .bi-plus-circle, .bi-card-checklist {
+    line-height: 1.3;
     }
