@@ -2,8 +2,23 @@
 {% block title %}Task {{task.pk}}{% endblock %}
 
 {% block content %}
-    <p>{{task.title}}</p>
-    <p>{{task.content}}</p>
-    <p>{{task.complete}}</p>
-    <p>{{task.created_at}}</p>
+    <dl class="row mt-4">
+      <dt class="col-sm-3">Name</dt>
+      <dd class="col-sm-9">{{task.title}}</dd>
+
+      <dt class="col-sm-3">Description</dt>
+      <dd class="col-sm-9">{{task.content}}</dd>
+
+      <dt class="col-sm-3">Status</dt>
+      <dd class="col-sm-9">
+          {% if task.complete %}
+            Complete
+          {% else %}
+            Incomplete
+          {% endif %}
+      </dd>
+
+      <dt class="col-sm-3">Creation date</dt>
+      <dd class="col-sm-9">{{task.created_at}}</dd>
+    </dl>
 {% endblock %}
