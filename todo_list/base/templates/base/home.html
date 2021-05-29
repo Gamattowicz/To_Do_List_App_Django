@@ -2,5 +2,8 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<h1 class="d-flex justify-content-center">Welcome back, {{request.user|title}}!</h1>
+<div class="mt-4">
+    <h2 class="text-center">Welcome back, {{request.user|title}}!</h2>
+    <h4 class="text-center mt-3">You have <strong>1</strong> incomplete task.</h4>
+</div>
 {% endblock %}
