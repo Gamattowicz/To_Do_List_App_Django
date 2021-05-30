@@ -24,7 +24,7 @@ span, i {
     color: #FFDF6C;
     }
 
-.textarea:focus, .textinput:focus, .form-control:focus{
+.textarea:focus, .textinput:focus, .form-control:focus, .form-select:focus{
     box-shadow: rgb(255, 223, 108) 0 0 1.5em;
     border: 1px solid rgb(255, 223, 108);
     }
@@ -114,7 +114,7 @@ a:hover {
 
 .category {
     text-align: center;
-    width:27%;
+    width:24%;
     border-top-width: 0px;
     color: #FFF;
     border-radius: 10px;

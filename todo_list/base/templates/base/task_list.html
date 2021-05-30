@@ -12,7 +12,7 @@
     <div class="container-fluid my-4 ms-0 col-md-8">
     {% for task in tasks %}
         <ul class="list-group list-group-horizontal list-group-flush" style="border-bottom: 1px solid rgba(0, 0, 0, 0.125);">
-          <li class="list-group-item" style="width:5%; border: none;"><a href="{% url 'base:change_complete' task.pk %}">
+          <li class="list-group-item" style="width:8%; border: none;"><a href="{% url 'base:change_complete' task.pk %}">
               {% if task.complete %}
                   <i class="bi bi-check"></i>
               {% else %}
