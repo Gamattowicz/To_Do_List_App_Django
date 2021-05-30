@@ -1,11 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
-from colorfield.fields import ColorField
 
 
 class Category(models.Model):
     name = models.CharField(max_length=200)
-    color = ColorField(default='#FF0000')
+    color = models.CharField(max_length=7, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

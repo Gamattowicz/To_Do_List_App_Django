@@ -1,5 +1,6 @@
 from django import forms
 from .models import Task, Category
+from django.forms.widgets import TextInput
 
 
 class TaskForm(forms.ModelForm):
@@ -14,5 +15,5 @@ class CategoryForm(forms.ModelForm):
         model = Category
         fields = ['name', 'color']
         widgets = {
-            'color': forms.TextInput(attrs={'type': 'color'})
+            'color': TextInput(attrs={'type': 'color'})
         }

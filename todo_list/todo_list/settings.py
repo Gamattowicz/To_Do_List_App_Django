@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'base.apps.BaseConfig',
     'crispy_forms',
     'crispy_bootstrap5',
-    'colorfield',
 ]
 
 MIDDLEWARE = [
