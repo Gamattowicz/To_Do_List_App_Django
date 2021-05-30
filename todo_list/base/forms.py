@@ -6,7 +6,7 @@ from django.forms.widgets import TextInput
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ['title', 'content', 'complete']
+        fields = ['title', 'content', 'complete', 'category']
         title = forms.CharField(label='Title', max_length=200)
 
 
