@@ -8,6 +8,10 @@ class Category(models.Model):
     color = ColorField(default='#FF0000')
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name = ("Category")
+        verbose_name_plural = ("Categories")
+
     def __str__(self):
         return f'{str(self.name)}'
 

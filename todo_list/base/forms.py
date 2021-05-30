@@ -13,3 +13,6 @@ class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
         fields = ['name', 'color']
+        widgets = {
+            'color': forms.TextInput(attrs={'type': 'color'})
+        }
