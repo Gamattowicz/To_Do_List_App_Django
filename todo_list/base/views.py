@@ -1,5 +1,5 @@
 from django.shortcuts import redirect
-from .models import Task
+from .models import Task, Category
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
@@ -101,3 +101,13 @@ def change_complete_status(request, task_id):
     task.complete = not task.complete
     task.save()
     return redirect('base:tasks')
+
+
+class CategoryCreate(LoginRequiredMixin, CreateView):
+    model = Category
+    fields = ['name', 'color']
+    success_url = reverse_lazy('base:tasks')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(CategoryCreate, self).form_valid(form)
