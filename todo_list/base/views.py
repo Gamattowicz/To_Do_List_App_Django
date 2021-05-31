@@ -8,7 +8,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormVi
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from .forms import CategoryForm
+from .forms import CategoryForm, TaskForm
 
 
 class TaskLoginView(LoginView):
@@ -74,7 +74,7 @@ class TaskDetail(LoginRequiredMixin, DetailView):
 
 class TaskCreate(LoginRequiredMixin, CreateView):
     model = Task
-    fields = ['title', 'content', 'complete', 'category']
+    form_class = TaskForm
     success_url = reverse_lazy('base:tasks')
 
     def form_valid(self, form):
