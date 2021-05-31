@@ -19,14 +19,14 @@
                   <i class="bi bi-dash"></i>
               {% endif %}
               </a></li>
-          <li class="list-group-item" style="width:40%; border: none;"><a href="{% url 'base:detail' task.pk %}">
+          <li class="list-group-item" style="width:35%; border: none;"><a href="{% url 'base:detail' task.pk %}">
               {% if task.complete %}
                 <s>{{task.title}}</s>
               {% else %}
                 {{task.title}}
               {% endif %}
               </a></li>
-          <li class="list-group-item" style="width:20%; border: none"><i class="bi bi-calendar3"></i>{{task.deadline}}</li>
+          <li class="list-group-item" style="width:27%; border: none"><i class="bi bi-calendar3 me-2"></i>{{task.deadline}}</li>
           <li class="list-group-item category" style=" background-color: {{task.category.color}};">{{task.category}}</li>
           <li class="list-group-item" style="width:7%; border: none;"><a href="{% url 'base:update' task.pk %}"><i class="bi bi-pen-fill"></i></a></li>
           <li class="list-group-item" style="width:7%; border: none"><a href="{% url 'base:delete' task.pk %}"><i class="bi bi-trash-fill"></i></a></li>

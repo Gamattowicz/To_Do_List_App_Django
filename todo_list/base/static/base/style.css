@@ -108,13 +108,13 @@ a:hover {
     color: rgb(220, 20, 60);
     }
 
-[class^="bi-"]::before, [class*=" bi-"]::before, .bi-plus-circle, .bi-card-checklist {
+[class^="bi-"]::before, [class*=" bi-"]::before {
     line-height: 1.3;
     }
 
 .category {
     text-align: center;
-    width:20%;
+    width:18%;
     border-top-width: 0px;
     color: #FFF;
     border-radius: 10px;
@@ -127,4 +127,8 @@ a:hover {
 
 .special:hover {
     color: rgb(33, 37, 41);
+    }
+
+[class^="bi-calendar3"]::before, [class*=" bi-calendar3"]::before {
+    line-height: 0.8;
     }
