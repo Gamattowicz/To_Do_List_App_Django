@@ -21,6 +21,7 @@ class Task(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     complete = models.BooleanField(default=False)
+    deadline = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
