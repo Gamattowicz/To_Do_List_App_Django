@@ -9,26 +9,27 @@
           <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
         </form>
     </div>
-    <div class="container-fluid my-4 ms-0 col-md-8">
+    <div class="container-fluid my-4 ms-0 col-md-10">
     {% for task in tasks %}
         <ul class="list-group list-group-horizontal list-group-flush" style="border-bottom: 1px solid rgba(0, 0, 0, 0.125);">
-          <li class="list-group-item" style="width:8%; border: none;"><a href="{% url 'base:change_complete' task.pk %}">
+          <li class="list-group-item" style="width:6%; border: none;"><a href="{% url 'base:change_complete' task.pk %}">
               {% if task.complete %}
                   <i class="bi bi-check"></i>
               {% else %}
                   <i class="bi bi-dash"></i>
               {% endif %}
               </a></li>
-          <li class="list-group-item" style="width:50%; border: none;"><a href="{% url 'base:detail' task.pk %}">
+          <li class="list-group-item" style="width:40%; border: none;"><a href="{% url 'base:detail' task.pk %}">
               {% if task.complete %}
                 <s>{{task.title}}</s>
               {% else %}
                 {{task.title}}
               {% endif %}
               </a></li>
+          <li class="list-group-item" style="width:20%; border: none;">{{task.deadline}}</li>
           <li class="list-group-item category" style=" background-color: {{task.category.color}};">{{task.category}}</li>
-          <li class="list-group-item" style="width:9%; border: none;"><a href="{% url 'base:update' task.pk %}"><i class="bi bi-pen-fill"></i></a></li>
-          <li class="list-group-item" style="width:9%; border: none"><a href="{% url 'base:delete' task.pk %}"><i class="bi bi-trash-fill"></i></a></li>
+          <li class="list-group-item" style="width:7%; border: none;"><a href="{% url 'base:update' task.pk %}"><i class="bi bi-pen-fill"></i></a></li>
+          <li class="list-group-item" style="width:7%; border: none"><a href="{% url 'base:delete' task.pk %}"><i class="bi bi-trash-fill"></i></a></li>
         </ul>
     {% empty %}
         <ul class="list-group list-group-horizontal list-group-flush">
