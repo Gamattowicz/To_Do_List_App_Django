@@ -26,22 +26,19 @@ Simple **TO DO LIST** with many features created in **Django** to learn fundamen
 Make sure you have the latest version of Python installed.
 ```bash
 git clone <repo-url>
-```
 
+```
+Install Required Python Modules
 ```bash
 pip install -r requirements.txt
 ```
 
 ## Running The App
+Move to directory todo_list
 ```bash
 cd todo_list
 ```
-```bash
-python makemigrations
-```
-```bash
-python migrate
-```
+Next run the django web serve
 ```bash
 python manage.py runserver
 ```
